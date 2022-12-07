@@ -55,8 +55,8 @@ public class PlayerService {
             player.setLastName(lastName);
         }
 
-        if (rating > Player.MinimumRating &&
-                rating <= Player.MaximumRating &&
+        if (rating > Player.MINIMUM_RATING &&
+                rating <= Player.MAXIMUM_RATING &&
                 !Objects.equals(player.getRating(), rating)) {
             player.setRating(rating);
         }
