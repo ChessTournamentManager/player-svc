@@ -72,7 +72,7 @@ public class PlayerController {
             @RequestParam(required = false) String lastName,
             @RequestParam(required = false) int rating) {
         playerService.updatePlayer(id, firstName, lastName, rating);
-        Optional<Player> returnedPlayer= playerService.getPlayer(id);
+        Optional<Player> returnedPlayer = playerService.getPlayer(id);
         if (returnedPlayer.isEmpty()) {
             throw new ResponseStatusException(
                     HttpStatus.INTERNAL_SERVER_ERROR,
