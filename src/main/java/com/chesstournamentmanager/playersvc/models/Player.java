@@ -13,9 +13,9 @@ import java.util.UUID;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Player {
 
-    public static final int minimumRating = 100;
-    public static final int standardRating = 400;
-    public static final int maximumRating = 4000;
+    public static final int MinimumRating = 100;
+    public static final int StandardRating = 400;
+    public static final int MaximumRating = 4000;
     @Id
     private UUID id;
     private String firstName;
@@ -27,7 +27,7 @@ public class Player {
         this.id = UUID.randomUUID();
         this.firstName = firstName;
         this.lastName = lastName;
-        this.rating = standardRating;
+        this.rating = StandardRating;
         this.createdAt = LocalDateTime.now();
     }
 
