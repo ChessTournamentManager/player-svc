@@ -89,12 +89,10 @@ public class PlayerController {
         return "Player with ID " + id + " has been deleted";
     }
 
-
     private Player convertToEntity(PlayerRequestModel playerRequestModel) {
-        Player player = new Player(
+        return new Player(
                 playerRequestModel.getFirstName(),
                 playerRequestModel.getLastName()
         );
-        return player;
     }
 }

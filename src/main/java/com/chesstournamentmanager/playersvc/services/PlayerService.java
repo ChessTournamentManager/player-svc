@@ -20,8 +20,7 @@ public class PlayerService {
         this.playerRepository = playerRepository;
     }
 
-
-    // GET
+    // Read methods
 
     public Iterable<Player> getPlayers() {
         return playerRepository.findAll();
@@ -31,16 +30,13 @@ public class PlayerService {
         return playerRepository.findById(id);
     }
 
-
-    // POST
+    // Update methods
 
     public void addNewPlayer(Player player) {
         playerRepository.save(player);
     }
 
-
-    // PUT
-
+    // Update methods
 
     @Transactional
     public void updatePlayer(UUID id, String firstName, String lastName, int rating) {
@@ -49,26 +45,24 @@ public class PlayerService {
                         "Player with id " + id + " does not exist"
                 ));
 
-        if (firstName != null &&
-                !firstName.isBlank() &&
+        if (!firstName.isBlank() &&
                 !Objects.equals(player.getFirstName(), firstName)) {
             player.setFirstName(firstName);
         }
 
-        if (lastName != null &&
-                !lastName.isBlank() &&
+        if (!lastName.isBlank() &&
                 !Objects.equals(player.getLastName(), lastName)) {
             player.setLastName(lastName);
         }
 
-        if (rating > 0 &&
+        if (rating > Player.minimumRating &&
+                rating <= Player.maximumRating &&
                 !Objects.equals(player.getRating(), rating)) {
             player.setRating(rating);
         }
     }
 
-
-    // DELETE
+    // Delete methods
 
     public void deletePlayer(UUID id) {
         boolean exists = playerRepository.existsById(id);
@@ -79,10 +73,17 @@ public class PlayerService {
         playerRepository.deleteById(id);
     }
 
+    // Validation methods
 
     public String validatePlayer(Player player) {
-        String message = "";
+        if (player.getFirstName().isBlank()) {
+            return "No first name was provided";
+        }
 
-        return message;
+        if (player.getLastName().isBlank()) {
+            return "No last name was provided";
+        }
+
+        return "";
     }
 }

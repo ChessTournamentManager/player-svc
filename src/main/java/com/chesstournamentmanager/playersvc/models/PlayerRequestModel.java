@@ -3,12 +3,10 @@ package com.chesstournamentmanager.playersvc.models;
 public class PlayerRequestModel {
     private String firstName;
     private String lastName;
-    private int rating;
 
-    public PlayerRequestModel(String firstName, String lastName, int rating) {
+    public PlayerRequestModel(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.rating = rating;
     }
 
     public String getFirstName() {
@@ -25,13 +23,5 @@ public class PlayerRequestModel {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public int getRating() {
-        return rating;
-    }
-
-    public void setRating(int rating) {
-        this.rating = rating;
     }
 }
