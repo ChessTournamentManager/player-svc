@@ -19,7 +19,7 @@ public class Player {
     private String firstName;
     private String lastName;
     private int rating;
-    private final LocalDateTime createdAt;
+    private LocalDateTime createdAt;
 
     public Player(String firstName, String lastName) {
         this.id = UUID.randomUUID();
