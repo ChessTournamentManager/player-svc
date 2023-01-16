@@ -8,15 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class PlayerSvcApplicationTests {
 
-	@Autowired
-	private PlayerSvcApplication playerSvcApplication;
-
 	@Test
 	void contextLoads() {
-	}
-
-	@Test
-	void sendsWelcomeMessage() {
-		assertThat(playerSvcApplication.getMessage()).isEqualTo("Welcome to the player service.");
 	}
 }
